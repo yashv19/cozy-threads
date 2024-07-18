@@ -5,7 +5,7 @@ import React from 'react'
 const CartButton = () => {
   return (
     <IconButton>
-        <ShoppingCart size={36} />
+        <ShoppingCart size={36} weight="thin" />
     </IconButton>
   )
 }

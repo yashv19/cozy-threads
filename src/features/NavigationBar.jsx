@@ -6,6 +6,7 @@ import {
   Typography
 } from '@mui/joy';
 import CartButton from './Cart/CartButton';
+import { Hoodie } from '@phosphor-icons/react';
 
 const NavigationBar = () => {
   return (
@@ -16,10 +17,9 @@ const NavigationBar = () => {
         left: 0,
         right: 0,
         zIndex: 1000,
-        boxShadow: '0 4px 8px 0 rgb(0,0,0,0.1)',
         borderBottom: '1px solid rgb(0,0,0,0.1)',
         height: '72px',
-        backgroundColor: '#EAE2D5',
+        backgroundColor: '#fff',
       }}
     >
       <Box
@@ -32,11 +32,13 @@ const NavigationBar = () => {
         }}
       >
         <Link component={RouterLink} to="/">
+          <Hoodie size={36} color="#ae1e1e" weight="fill" />
           <Typography
             level="h1"
             sx={{
               cursor: 'pointer',
               userSelect: 'none',
+              ml: '0.5rem',
             }}
           >
             Cozy Threads
