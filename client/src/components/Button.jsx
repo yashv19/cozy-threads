@@ -1,13 +1,10 @@
 import React from 'react'
 import { Button as JoyButton } from '@mui/joy'
 
-const Button = ({children, sx, ...rest}) => {
+const Button = ({children, ...rest}) => {
   return (
     <JoyButton
-        sx={{
-            borderRadius: 0,
-            ...sx,
-        }}
+        variant='outlined'
         {...rest}
     >
         {children}

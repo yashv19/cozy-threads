@@ -5,13 +5,12 @@ const Page = ({children, sx, ...rest}) => {
   return (
     <Box
         sx={{
-            marginTop: '72px',
+            paddingTop: '6rem',
             boxSizing: 'border-box',
-            padding: '2rem',
             display: 'flex',
             flexDirection: 'column',
-            justifyContent: 'center',
             alignItems: 'center',
+            minHeight: '100vh',
             ...sx,
         }}
         {...rest}

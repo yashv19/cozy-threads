@@ -7,7 +7,7 @@ const CartButton = () => {
   const cartCount = useSelector(state => state.cart.totalItemsInCart);
 
   return (
-    <Badge badgeContent={cartCount} size="md" anchorOrigin={{horizontal: 'left', vertical: 'bottom'}}>
+    <Badge badgeContent={cartCount} size="md" anchorOrigin={{ horizontal: 'left', vertical: 'bottom' }}>
       <IconButton>
         <ShoppingCart size={36} weight="thin" />
       </IconButton>

@@ -21,7 +21,7 @@ const ProductCard = ({productData}) => {
         p: 0, 
         maxWidth: 320, 
         border: '0px',
-        backgroundColor: 'transparent'
+        backgroundColor: 'transparent',
       }}
     >
         <AspectRatio ratio="1/1">
