@@ -1,6 +1,8 @@
 import express from 'express';
 import catalog from './catalog.js';
 import Stripe from 'stripe';
+import path from 'path';
+import { fileURLToPath } from 'url';
 import * as dotenv from 'dotenv';
 dotenv.config();
 
@@ -10,6 +12,13 @@ const app = express();
 
 app.use(express.json());
 
+//Serve static files
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+app.use(express.static(path.join(__dirname, '../../client/dist')));
+
+
+//Serve catalog data
 app.get('/api/get-products', (req, res) => {
     const products = [];
     catalog.forEach((value, key) => {
@@ -48,6 +57,11 @@ app.post('/api/create-checkout-session', async (req, res) => {
 
     res.send({redirectUrl: session.url});
 })
+
+// Serve react app for non API requests
+app.get('*', (req, res) => {
+    res.sendFile(path.join(__dirname, '../../client/dist', 'index.html'));
+});
 
 const port = process.env.port || 3000;
 app.listen(port);
