@@ -15,7 +15,7 @@ app.use(express.json());
 //Serve static files
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
-app.use(express.static(path.join(__dirname, '../../client/dist')));
+app.use(express.static(path.join(__dirname, '../client/dist')));
 
 
 //Serve catalog data
@@ -60,7 +60,7 @@ app.post('/api/create-checkout-session', async (req, res) => {
 
 // Serve react app for non API requests
 app.get('*', (req, res) => {
-    res.sendFile(path.join(__dirname, '../../client/dist', 'index.html'));
+    res.sendFile(path.join(__dirname, '../client/dist', 'index.html'));
 });
 
 const port = process.env.port || 3000;

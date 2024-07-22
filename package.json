@@ -6,8 +6,9 @@
   "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node src/server.js",
-    "postinstall": "npm --prefix ../client install && npm --prefix ../client run build"
+    "start": "node server/server.js",
+    "dev": "nodemon server/server.js",
+    "postinstall": "npm --prefix client install && npm --prefix client run build"
   },
   "keywords": [],
   "author": "",
