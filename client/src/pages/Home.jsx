@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from 'react'
-import Page from '../components/Page'
-import ProductCard from '../features/Products/ProductCard'
+import Page from '../components/base/Page'
+import ProductCard from '../components/Products/ProductCard'
 import { Grid, Typography } from '@mui/joy';
+import axios from 'axios';
 // import catalog from '../../../server/src/catalog';
 
 const Home = () => {
@@ -10,13 +11,14 @@ const Home = () => {
   const [error, setError] = useState(false);
 
   useEffect(() => {
-
-    fetch('/api/get-products')
-      .then(response => response.json())
-      .then(data => setCatalog(data))
+    axios.get('/api/get-products')
+      .then(res => {
+        console.log(res);
+        setCatalog(res.data)
+      })
       .catch(err => {
-        console.error(err);
-        console.log('failed to fetch products');
+        console.log('Failed to fetch products')
+        console.error(err)
         setError(true);
       })
 
@@ -50,7 +52,7 @@ const Home = () => {
           )
         })}
       </Grid>}
-      {error && <Typography sx={{m: '4rem'}}>🙁 Failed to fetch products</Typography>}
+      {error && <Typography sx={{ m: '4rem' }}>🙁 Failed to fetch products</Typography>}
     </Page>
   )
 }

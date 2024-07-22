@@ -1,8 +1,8 @@
 import React from 'react'
-import Page from '../components/Page'
+import Page from '../components/base/Page'
 import { Link } from '@mui/joy'
 import { Link as RouterLink } from 'react-router-dom'
-import Button from '../components/Button'
+import Button from '../components/base/Button'
 
 const TransactionSuccessful = () => {
   return (

@@ -1,11 +1,10 @@
 import React from 'react'
-import Page from '../components/Page'
-import CartCard from '../features/Cart/CartCard'
+import Page from '../components/base/Page'
+import CartCard from '../components/Cart/CartCard'
 import { useSelector } from 'react-redux'
 import { Box, Divider, Typography, Link } from '@mui/joy'
-import Button from '../components/Button'
+import Button from '../components/base/Button'
 import axios from 'axios'
-import { Link as RouterLink } from 'react-router-dom'
 
 const Cart = () => {
   const itemsInCart = useSelector(state => state.cart.itemsInCart);

@@ -1,5 +1,5 @@
 import { AspectRatio, Card, Typography, CardContent, ButtonGroup, IconButton, Input, Box } from '@mui/joy'
-import Button from '../../components/Button'
+import Button from '../../components/base/Button'
 import { Minus, Plus } from '@phosphor-icons/react'
 import { useDispatch } from 'react-redux'
 import React, { useState } from 'react'

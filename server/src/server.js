@@ -1,6 +1,5 @@
 import express from 'express';
 import catalog from './catalog.js';
-import cors from 'cors';
 import Stripe from 'stripe';
 import * as dotenv from 'dotenv';
 dotenv.config();
@@ -9,7 +8,6 @@ const stripe = new Stripe(process.env.STRIPE_SECRET_KEY);
 
 const app = express();
 
-app.use(cors())
 app.use(express.json());
 
 app.get('/api/get-products', (req, res) => {
@@ -26,15 +24,16 @@ app.post('/api/create-checkout-session', async (req, res) => {
     const lineItems = [];
     const cart = req.body.cartItems;
     cart.forEach((item) => {
+        const product = catalog.get(item.id);
         lineItems.push({
             price_data: {
                 product_data: {
-                    name: item.title,
-                    description: item.description,
-                    images: [item.imageURL]
+                    name: product.title,
+                    description: product.description,
+                    images: [product.imageURL]
                 },
                 currency: 'USD',
-                unit_amount: item.price * 100
+                unit_amount: product.price * 100
             },
             quantity: item.quantity
         })
@@ -50,5 +49,6 @@ app.post('/api/create-checkout-session', async (req, res) => {
     res.send({redirectUrl: session.url});
 })
 
-app.listen(3000);
-console.log('Server listening on port 3000');
+const port = process.env.port || 3000;
+app.listen(port);
+console.log(`Server listening on port ${port}`);

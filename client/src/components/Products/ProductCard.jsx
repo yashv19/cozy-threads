@@ -2,7 +2,7 @@ import { AspectRatio, Card, CardContent, Typography } from '@mui/joy'
 import Button from '../base/Button'
 import React from 'react'
 import { useDispatch } from 'react-redux'
-import { CartActions } from '../../features/Cart/CartSlice'
+import { CartActions } from '../Cart/CartSlice'
 
 
 
