@@ -3,8 +3,9 @@ import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 import './App.css'
 import Home from './pages/Home'
 import Cart from './pages/Cart'
-import Checkout from './pages/Checkout'
 import Layout from './pages/Layout'
+import TransactionCancelled from './pages/TransactionCancelled'
+import TransactionSuccessful from './pages/TransactionSuccessful'
 
 const router = createBrowserRouter([
   {
@@ -13,7 +14,8 @@ const router = createBrowserRouter([
     children: [
       { path: '/', element: <Home /> },
       { path: '/cart', element: <Cart /> },
-      { path: '/checkout', element: <Checkout /> }
+      { path: '/transaction-cancelled', element: <TransactionCancelled /> },
+      { path: '/transaction-successful', element: <TransactionSuccessful /> }
     ]
   }
 ])
