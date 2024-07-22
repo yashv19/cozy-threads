@@ -8,6 +8,8 @@ dotenv.config();
 
 const stripe = new Stripe(process.env.STRIPE_SECRET_KEY);
 
+const DOMAIN_URL = process.env.NODE_ENV === 'production' ? process.env.EXTERNAL_URL : process.env.DOMAIN_URL;
+
 const app = express();
 
 app.use(express.json());
@@ -50,8 +52,8 @@ app.post('/api/create-checkout-session', async (req, res) => {
     const session = await stripe.checkout.sessions.create({
         line_items: lineItems,
         mode: 'payment',
-        success_url: `${process.env.DOMAIN_URL}/transaction-successful`,
-        cancel_url: `${process.env.DOMAIN_URL}/transaction-cancelled`,
+        success_url: `${DOMAIN_URL}/transaction-successful`,
+        cancel_url: `${DOMAIN_URL}/transaction-cancelled`,
     });
     console.log(`Session created. URL: ${session.url}`)
 
